@@ -1,0 +1,31 @@
+<header [class.sticky]="isSticky">
+    <div class="container">
+      <div class="logo">
+        <img src="/images/logo-white.png" alt="logo"/>
+      </div>
+
+      <div class="mobile-top">
+        <!-- Mobile logo   -->
+        <div class="mobile-logo-container">
+          <img src="/images/logo-blue.png" alt="logo">
+        </div>
+
+        <!-- Mobile Menu Button (Toggles between ☰ and ✖) -->
+        <button class="menu-btn" (click)="toggleMenu()">
+          {{ isMenuOpen ? '✖' : '☰' }}
+        </button>  
+      </div>
+  
+      <!-- Navigation Menu -->
+      <nav [ngClass]="isMenuOpen ? 'open' : 'close'">
+        <ul>
+          @for(item of navItems; track item.pageCode){
+            <li (click)="setActive(item)">
+              <a routerLinkActive="active" routerLink={{item.pageUrl}}>{{ item.pageCode }}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+  </header>
+  

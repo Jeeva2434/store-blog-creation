@@ -1,0 +1,200 @@
+header {
+    position: relative;
+    width: 100%;
+    background: radial-gradient(circle farthest-corner at center center, #0060ff 0%, #004f81 100%);
+    padding: 15px 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    height: 120px;
+    display: grid;
+    align-content: center;
+  
+    &.sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  
+    .logo {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      width: 100px;
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    /* Mobile Menu Button */
+    .menu-btn {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-logo-container{
+      display: none;
+    }
+  
+    nav {
+      ul {
+        list-style: none;
+        display: flex;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        column-gap: 32px;
+  
+        li {
+          position: relative;
+  
+          a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 0;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease-in-out;
+  
+            &:hover:after {
+              width: 50%;
+            }
+  
+            &:after {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 3px;
+              background: #fff;
+              left: 50%;
+              bottom: -5px;
+              transition: all 0.3s ease-in-out;
+              transform: translateX(-50%);
+            }
+  
+            &.active {
+              color: #ffc107;
+            }
+          }
+        }
+      }
+    }
+  
+    /* Responsive Styles */
+    @media (max-width: 962px) {
+      background: white; /* Mobile header background white */
+      height: 84px;
+
+      .mobile-top{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .mobile-logo-container{
+          display: block;
+  
+          img{
+            width: 40px;
+            height: 40px;
+          }
+        }  
+  
+        .menu-btn {
+          display: block;
+          color: black;
+        }
+      }
+  
+      
+
+      .logo {
+        display: none;
+      }
+  
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #add8e6; /* Light Blue */
+        text-align: center;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s ease-in-out, opacity 1s ease-in-out, transform 1s ease-in-out;
+  
+        &.open {
+          opacity: 1;
+          max-height: max-content;
+          transform: translateY(0);
+        }
+  
+        &.close {
+          opacity: 0;
+          max-height: 0;
+          transform: translateY(-10px);
+        }
+  
+        ul {
+          flex-direction: column;
+          text-align: center;
+          // padding: 10px 0;
+          margin: 0;
+  
+          li {
+            width: 100%;
+  
+            a {
+              display: block;
+              text-decoration: none;
+              font-size: 18px;
+              transition: all 0.3s ease-in-out;
+              font-size: 14px;
+              color: #085485;
+              font-weight: 700;
+              background-color: #ebebeb;
+              -webkit-transition: all 0.5s ease-out;
+              -o-transition: all 0.5s ease-out;
+              transition: all 0.5s ease-out;
+              margin-bottom: 1px;
+              padding: 22px 0;
+              font-size: 18px;
+              font-family: sans-serif;
+  
+              &:hover {
+                background: #e0e0e0;
+              }
+  
+              &.active {
+                color: #085485; /* Dark blue after clicking */
+                background: #d9edf7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // .sticky .container{
+  //   background-color: white;
+  //   box-shadow: 0 2px 12px 0 rgb(117 117 219);
+  // }
