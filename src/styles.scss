@@ -34,8 +34,12 @@
 .page-banner {
     color: #fff;
     text-align: center;
-    padding: 60px 20px;
+    padding: 36px 20px;
     font-size: 32px;
     font-weight: bold;
     background: radial-gradient(circle farthest-corner at center center, #0060ff 0%, #004f81 100%);
+}
+
+.clr-fff {
+    color: #fff !important;
 }
